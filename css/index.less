@@ -1,0 +1,362 @@
+// 
+@main-width : 1250px;
+@main-height: 910px;
+
+// 块标题高度
+@head-height: 22px;
+
+// 定义颜色
+@color-background : #000011;
+@color-border     :#fafafa;
+
+
+// 字体
+@font-face {
+    font-family: Num;
+    src        : url("../font/num.ttf")
+}
+
+* {
+    margin             : 0;
+    padding            : 0;
+    -moz-user-select   : none;
+    -o-user-select     : none;
+    -khtml-user-select : none;
+    -webkit-user-select: none;
+    -ms-user-select    : none;
+    user-select        : none;
+}
+
+
+html,
+body {
+    position  : relative;
+    width     : 100%;
+    height    : 100%;
+    background: rgba(0, 0, 0, .66) !important;
+}
+
+#repository {
+    position: fixed;
+}
+
+.bg {
+    position  : fixed;
+    top       : 0;
+    left      : 0;
+    width     : 100%;
+    height    : 100%;
+    object-fit: cover;
+    z-index   : -2;
+}
+
+.music {
+    position: fixed;
+    top     : 0;
+    right   : 0;
+    cursor  : pointer;
+}
+
+.container {
+    width          : 100%;
+    height         : 100%;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+
+    .pre {
+        width : 100%;
+        height: 100%;
+
+        img {
+            width : 100%;
+            height: 100%;
+        }
+    }
+
+    main {
+        width     : @main-width;
+        height    : @main-height;
+        background: @color-background;
+
+        border : solid 2px @color-border;
+        display: flex;
+
+        .head {
+            width     : 100%;
+            height    : @head-height;
+            background: @color-border;
+
+            p {
+                line-height: 22px;
+                text-align : center;
+                color      : #000;
+                font-size  : 14px;
+            }
+        }
+
+        .invers-head {
+            width        : 100%;
+            height       : calc(@head-height + 2px);
+            background   : #000;
+            border-bottom: solid 2px @color-border;
+
+            p {
+                line-height: 22px;
+                text-align : center;
+                color      : #fff;
+                font-size  : 14px;
+            }
+        }
+
+        .left {
+            width : 470px;
+            height: 100%;
+            margin: 13px 0 0 35px;
+
+            .timeout {
+                width : 470px;
+                height: 98px;
+                border: solid 2px @color-border;
+
+                .timmer {
+                    p {
+                        line-height: calc(98px - @head-height - 4px);
+                        text-align : center;
+                        color      : #e47b7b;
+                        font-size  : 38px;
+                        font-family: Num, sans-serif;
+                    }
+                }
+            }
+
+            .component {
+                position  : relative;
+                width     : 470px;
+                height    : 766px;
+                margin-top: 14px;
+                border    : solid 2px @color-border;
+
+                .fragments {
+                    width        : 288px;
+                    height       : 576px;
+                    margin       : 18px auto 0;
+                    // background: silver;
+                    display      : flex;
+                    flex-wrap    : wrap;
+
+                    .active {
+
+                        // background: #fff;
+
+                        img {
+                            // filter: opacity(1) !important;
+                            border: solid 2px @color-border  !important;
+                        }
+                    }
+
+                    .fragment {
+                        width : 144px;
+                        height: 144px;
+
+                        // img {}
+
+                        &:hover {
+                            // border: solid 2px #fff;
+                            border: solid 2px #a2a2a8;
+                            width : 140px;
+                            height: 140px;
+
+                            .fingerprint {
+                                margin: 9px;
+                            }
+                        }
+
+                        .fingerprint {
+                            width    : 118px;
+                            height   : 118px;
+                            margin   : 11px;
+                            border   : solid 2px #1f221f;
+                            // border: solid 2px @color-border;
+
+                            cursor: pointer;
+
+
+                        }
+
+                    }
+                }
+
+                .countdown-div {
+                    position: absolute;
+                    width   : 422px;
+                    height  : 98px;
+                    left    : 22px;
+                    bottom  : 22px;
+                    border  : solid 2px @color-border;
+
+                    .area {
+                        width : 100%;
+                        height: calc(100% - @head-height - 2px);
+
+                        display        : flex;
+                        justify-content: center;
+                        align-items    : center;
+
+                        .countdown {
+                            width          : 354px;
+                            height         : 58px;
+                            display        : flex;
+                            justify-content: space-between;
+                            align-items    : center;
+                            // background: gold;
+
+                            .tick {
+                                width     : 6px;
+                                height    : 80%;
+                                background: #e47b7b;
+                            }
+
+                        }
+
+                    }
+                }
+
+            }
+        }
+
+        .right {
+            flex  : 1;
+            height: 100%;
+            margin: 13px 0 0 22px;
+
+            .target {
+                position: relative;
+                width   : 686px;
+                height  : 665px;
+                border  : solid 2px @color-border;
+
+                // 右侧大指纹
+                .target-fingerprint {
+                    margin: 36px 0 0 25px;
+                    width : 528px;
+                    height: 528px;
+                }
+
+                // 右侧动画上面的标题
+                .access-attempts {
+                    position  : absolute;
+                    width     : 93px;
+                    height    : calc(@head-height * 2);
+                    top       : 58px;
+                    right     : 18px;
+                    background: @color-border;
+
+                    p {
+                        line-height: 22px;
+                        text-align : center;
+                        color      : #000;
+                        font-size  : 14px;
+                    }
+                }
+
+                // 右侧动画1
+                .anime1 {
+                    position: absolute;
+                    width   : 89px;
+                    height  : 436px;
+                    top     : 102px;
+                    right   : 18px;
+                    border  : solid 2px @color-border;
+                }
+
+                // 右侧动画2
+                .anime2 {
+                    position: absolute;
+                    width   : 68px;
+                    height  : 68px;
+                    right   : 28px;
+                    bottom  : 12px;
+                }
+
+            }
+
+            .decypher {
+                margin-top: 18px;
+                width     : 686px;
+                height    : 195px;
+                border    : solid 2px @color-border;
+
+                .decypher-fingerprints {
+                    width  : 576px;
+                    height : 144px;
+                    margin : 12px auto;
+                    display: flex;
+
+                    // background: paleturquoise;
+
+                    .decypher-fingerprint {
+                        position     : relative;
+                        width        : 144px;
+                        height       : 144px;
+                        // background: darkcyan;
+
+                        img {
+                            position: absolute;
+                            width   : 122px;
+                            height  : 122px;
+                            top     : 11px;
+                            left    : 11px;
+                            border  : solid 2px #383333;
+                        }
+
+                    }
+
+                    .active {
+                        border: solid 2px @color-border;
+
+                        img {
+                            top : 9px;
+                            left: 9px;
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.start {
+    position: absolute;
+    bottom  : 0;
+    right   : 0;
+    z-index : 4;
+
+    h4 {
+        color      : #fff;
+        font-size  : 50px;
+        font-family: Raleway, Verdana, Arial;
+        padding    : 10px;
+        cursor     : pointer;
+    }
+}
+
+.author {
+    position: absolute;
+    bottom  : 0;
+    left    : 0;
+    z-index : 3;
+
+    h4 {
+        color      : #fff;
+        font-size  : 50px;
+        font-family: Raleway, Verdana, Arial;
+        padding    : 10px;
+        cursor     : pointer;
+    }
+}
